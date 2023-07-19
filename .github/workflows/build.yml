@@ -1,9 +1,8 @@
 name: 'build' 
 on: # rebuild any PRs and main branch changes
-  label:
-    types:
-      - created
   push:
+    tags:
+      - 'v**'
     branches:
       - main
 
