@@ -1,0 +1,29 @@
+FROM quay.io/podman/stable:v4.5.1
+
+RUN usermod -l code podman; \
+groupmod -n code podman; \
+usermod -d /home/code -m code; \
+echo -e "code:1:999\ncode:1001:64535" > /etc/subuid; \
+echo -e "code:1:999\ncode:1001:64535" > /etc/subgid;  \
+dnf -y update && \
+dnf -y groupinstall "C Development Tools and Libraries" "Development Tools" && \
+dnf -y install langpacks-en_GB neovim \
+       python3-neovim util-linux-user \
+			 tmux tmux-powerline git zsh && \
+usermod -s /bin/zsh code
+
+VOLUME /home/code/.local/share/containers
+
+USER code
+RUN git clone https://github.com/whynotea/bootstrap.git \
+              /home/code/.bootstrap && \
+    git clone https://github.com/whynotea/zsh.git \
+              /home/code/.bootstrap/include/zsh && \
+    git clone https://github.com/whynotea/tmux.git \
+              /home/code/.bootstrap/include/tmux && \
+    git clone https://github.com/whynotea/nvim.git \
+              /home/code/.bootstrap/include/nvim && \
+    echo -e "source /home/code/.bootstrap/bootstrap" > /home/code/.zshrc
+
+RUN zsh -ic "vim --headless '+q!'"
+WORKDIR /home/code
