@@ -7,7 +7,7 @@ echo -e "code:1:999\ncode:1001:64535" > /etc/subuid; \
 echo -e "code:1:999\ncode:1001:64535" > /etc/subgid;  \
 dnf -y update && \
 dnf -y --setopt=install_weak_deps=false --setopt=tsflags=nodocs groupinstall "C Development Tools and Libraries" "Development Tools" && \
-dnf -y --setopt=install_weak_deps=false --setopt=tsflags=nodocs langpacks-en_GB neovim \
+dnf -y --setopt=install_weak_deps=false --setopt=tsflags=nodocs install langpacks-en_GB neovim \
        python3-neovim util-linux-user \
 			 tmux tmux-powerline git zsh && \
 dnf clean all && rm -rf /var/cache/yuminstall && \
