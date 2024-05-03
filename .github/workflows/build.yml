@@ -27,7 +27,7 @@ jobs:
       - name: Build and run Dev Container task
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/whynotea/devcontainer-wails
+          imageName: ghcr.io/whynotea/devcontainer-base
           imageTag: latest,${{github.ref_name}}
-          cacheFrom: ghcr.io/whynotea/devcontainer-wails
+          cacheFrom: ghcr.io/whynotea/devcontainer-base
           push: always
