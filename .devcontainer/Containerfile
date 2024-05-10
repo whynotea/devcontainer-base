@@ -10,6 +10,9 @@ dnf -y --setopt=tsflags=nodocs groupinstall "C Development Tools and Libraries" 
 dnf -y --setopt=tsflags=nodocs install langpacks-en_GB neovim \
        python3-neovim util-linux-user \
 			 tmux tmux-powerline git zsh && \
+dnf -y install 'dnf-command(config-manager)' &&\
+dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo &&\
+dnf install gh &&\
 dnf clean all && rm -rf /var/cache/yuminstall && \
 usermod -s /bin/zsh code
 
