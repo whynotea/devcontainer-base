@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.8](https://github.com/whynotea/devcontainer-base/compare/v1.0.7...v1.0.8) (2024-05-10)
+
+
+### Bug Fixes
+
+* resolve gh cli install issue ([3780147](https://github.com/whynotea/devcontainer-base/commit/37801476e9fdf7fab7c5dd721ebd45e560208c16))
+
 ## [1.0.7](https://github.com/whynotea/devcontainer-base/compare/v1.0.6...v1.0.7) (2024-05-10)
 
 
