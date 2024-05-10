@@ -1,6 +1,6 @@
 {
   "name": "devcontainer-base",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Nodejs wrapper to bundle various linters and build tools for devcontainer-base",
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
